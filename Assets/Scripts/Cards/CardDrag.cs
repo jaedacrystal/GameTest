@@ -4,43 +4,43 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public CanvasGroup canvasGroup;
     private Transform cardParent = null;
-    private CanvasGroup canvasGroup;
-    private Vector3 originalPosition;
+    public bool isDragging;
 
     private void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        originalPosition = transform.localPosition;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        cardParent = transform.parent;
-        transform.SetParent(transform.root);
+        Debug.Log("Card Dragged");
+
+        isDragging = false;
         canvasGroup.blocksRaycasts = false;
+        cardParent = this.transform.parent;
+        this.transform.SetParent(this.transform.parent.parent);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Card Drag");
         transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-
-        Debug.Log("Card Dropped");
+        Discard discardCard = GetComponent<Discard>();
         canvasGroup.blocksRaycasts = true;
 
-        Discard discardCard = eventData.pointerEnter?.GetComponent<Discard>();
-        if (discardCard != null)
+        if (isDragging)
         {
             discardCard.OnDrop(eventData);
         }
@@ -48,11 +48,18 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             ReturnToOriginalPosition();
         }
+
+        Debug.Log("Card Drag Ended");
+
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
     private void ReturnToOriginalPosition()
     {
-        transform.SetParent(cardParent);
-        transform.DOMove(originalPosition, 0.3f);
+        this.transform.SetParent(cardParent);
     }
 }
