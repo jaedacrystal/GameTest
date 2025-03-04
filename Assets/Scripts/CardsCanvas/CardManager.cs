@@ -4,7 +4,6 @@ using TMPro;
 
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Splines;
 using DG.Tweening;
 using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
@@ -25,6 +24,7 @@ public class CardManager : MonoBehaviour
     public void DrawCard()
     {
         if (card.Count >= maxHandSize) return;
+
         GameObject g = Spawn();
         g.transform.localScale = Vector3.zero;
         g.transform.DOScale(Vector3.one, 0.3f);
@@ -46,7 +46,7 @@ public class CardManager : MonoBehaviour
             float interval = 100f;
             float x = (i - center) * interval;
 
-            card[i].transform.localPosition= new Vector3(x, 0, 0);
+            card[i].transform.localPosition = new Vector3(x, 0, 0);
         }
     }
 
@@ -59,3 +59,5 @@ public class CardManager : MonoBehaviour
         }
     }
 }
+
+

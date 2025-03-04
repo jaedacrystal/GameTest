@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.Events;
@@ -60,6 +61,12 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private void ReturnToOriginalPosition()
     {
-        this.transform.SetParent(cardParent);
+        Vector3 targetPosition = cardParent.localPosition;
+
+        transform.DOLocalMove(targetPosition, 0.3f).OnComplete(() =>
+        {
+            this.transform.SetParent(cardParent);
+        });
+        
     }
 }
