@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartUI.unity
+    guid: 556145b7a0220124693b6082fb650606
+  - enabled: 1
+    path: Assets/Scenes/CardsCanvas.unity
+    guid: 07df128d48fdc294bb811aef67e956b1
   m_configObjects: {}
