@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1821669929, guid: bf216d97fdfd64f49b928e5ea3166ccd, type: 3}
+  m_Name: AnimationConfigSelector
+  m_EditorClassIdentifier: 
+  configEntries:
+  - config: {fileID: 11400000, guid: a8b318d95a195824987583586a7573ec, type: 2}
+    configName: Position
+    guid: a8b318d95a195824987583586a7573ec
+  - config: {fileID: 11400000, guid: 8c6bcbfdbd974204ebb5a63fc00065e5, type: 2}
+    configName: Scale
+    guid: 8c6bcbfdbd974204ebb5a63fc00065e5
+  - config: {fileID: 11400000, guid: b732ac31072f9aa4a918f7ed6f601619, type: 2}
+    configName: Fade
+    guid: b732ac31072f9aa4a918f7ed6f601619
+  - config: {fileID: 11400000, guid: 866eeaa5b8e328d46916a8732f1303a2, type: 2}
+    configName: Fade_Position
+    guid: 866eeaa5b8e328d46916a8732f1303a2
+  - config: {fileID: 11400000, guid: 509092c2b72e56b4db011b4c57f031f9, type: 2}
+    configName: Position_L
+    guid: 509092c2b72e56b4db011b4c57f031f9
+  - config: {fileID: 11400000, guid: f3093b14eb69e484793d4c612d219cdb, type: 2}
+    configName: Fade_Position_L
+    guid: f3093b14eb69e484793d4c612d219cdb
+  - config: {fileID: 11400000, guid: a79843359e52e264f97d91a27e2cd0ed, type: 2}
+    configName: FadeOut
+    guid: a79843359e52e264f97d91a27e2cd0ed

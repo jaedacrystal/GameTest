@@ -16,7 +16,7 @@ public class PutCardOnTop : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private RectTransform transformObject;
     private int originalSiblingIndex;
     private HorizontalLayoutGroup parentLayout;
-    public Vector3 originalLocalPosition;
+    [HideInInspector] public Vector3 originalLocalPosition;
 
     private bool isClicked;
 
@@ -48,7 +48,6 @@ public class PutCardOnTop : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void cardClicked()
     {
-
         if (isClicked)
         {
             transform.DOLocalMove(originalLocalPosition, 0.25f);

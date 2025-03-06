@@ -12,5 +12,5 @@ public class Cards : ScriptableObject
     [TextArea(3, 3)]
     public string desc;
     
-    public int bandwidth;
+    public int bandwidth; 
 }
